@@ -8,7 +8,6 @@
     CONCERTS,
     EVENTS,
     FAQS,
-    INITIAL_CANDLES,
     FUNDS
   } = window.CathedralData;
 
@@ -179,70 +178,11 @@
           </div>
         </div>
         <blockquote class="readings-card__quote">${escapeHtml(DAILY_READINGS.reflection)}</blockquote>
-        <a href="#candles" class="btn btn--gold btn--sm">
-          Light a Prayer Candle
+        <a href="#sacraments" class="btn btn--gold btn--sm">
+          Explore Sacraments &amp; Mass Cards
         </a>
       `;
     }
-  }
-
-  /* --------------------------------------------------------------------------
-     Virtual Prayer Candle Stand
-  -------------------------------------------------------------------------- */
-  function initCandles() {
-    const form = document.getElementById("candle-form");
-    const feed = document.getElementById("intentions-feed");
-    const countEl = document.getElementById("candle-count");
-
-    let candles = [...INITIAL_CANDLES];
-    let totalLit = 1428;
-
-    function renderCandles() {
-      if (countEl) {
-        countEl.textContent = totalLit.toLocaleString();
-      }
-      if (feed) {
-        feed.innerHTML = candles
-          .slice(0, 6)
-          .map(
-            (c) => `
-          <div class="intention-pill">
-            <div class="intention-pill__meta">
-              <strong>${escapeHtml(c.name)}</strong>
-              <span>${escapeHtml(c.time)}</span>
-            </div>
-            <div>${escapeHtml(c.intention)}</div>
-          </div>
-        `
-          )
-          .join("");
-      }
-    }
-
-    if (form) {
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const nameInput = document.getElementById("candle-name");
-        const intentionInput = document.getElementById("candle-intention");
-        const name = (nameInput?.value || "").trim() || "Anonymous Pilgrim";
-        const intention = (intentionInput?.value || "").trim();
-
-        if (!intention) {
-          showToast("Please enter a brief prayer intention to light your candle.");
-          intentionInput?.focus();
-          return;
-        }
-
-        candles.unshift({ name, intention, time: "Just lit" });
-        totalLit += 1;
-        renderCandles();
-        window.Cathedral3D?.lightNewCandle(name, intention);
-        form.reset();
-        showToast("Your prayer candle has been lit and added to the Cathedral's intentions.");
-      });
-    }
-
-    renderCandles();
   }
 
   /* --------------------------------------------------------------------------
@@ -608,7 +548,6 @@
     updateNextMassStatus();
     initHeader();
     initSchedules();
-    initCandles();
     initSacraments();
     initConcerts();
     initEvents();

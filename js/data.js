@@ -248,16 +248,9 @@ const FAQS = [
     a: "Non-flash photography for personal use is welcome during sightseeing hours. Out of reverence for worshippers, photography and video recording are paused while Mass or Confession is in progress."
   },
   {
-    q: "How can I light a prayer candle or request a Mass intention?",
-    a: "You may light a physical votive candle in our side chapels during visiting hours, or light a virtual prayer candle right here on our website to submit an intention remembered at daily Mass."
+    q: "How can I request a Mass intention or Mass card?",
+    a: "Announced and unannounced Mass intentions may be arranged at the Parish House Reception Desk (8:30 AM – 5:00 PM), where embossed Cathedral Mass Cards are also available."
   }
-];
-
-const INITIAL_CANDLES = [
-  { name: "Maria G.", intention: "For healing and strength for my father after surgery.", time: "12 mins ago" },
-  { name: "Thomas K.", intention: "In thanksgiving for a safe return home and family peace.", time: "34 mins ago" },
-  { name: "Anonymous", intention: "For the peaceful repose of Grandmother Elena.", time: "1 hour ago" },
-  { name: "Claire & Daniel", intention: "Praying for guidance as we begin our marriage.", time: "2 hours ago" }
 ];
 
 const FUNDS = [
@@ -275,6 +268,5 @@ window.CathedralData = {
   CONCERTS,
   EVENTS,
   FAQS,
-  INITIAL_CANDLES,
   FUNDS
 };

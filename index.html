@@ -6,7 +6,7 @@
   <title>St. Bobby's Cathedral — America's Parish Church</title>
   <meta
     name="description"
-    content="Welcome to St. Bobby's Cathedral — daily Mass schedules, sacraments, sacred music, prayer candles, and visitor information."
+    content="Welcome to St. Bobby's Cathedral — daily Mass schedules, sacraments, sacred music, events, and visitor information."
   />
 
   <!-- Editorial Serif & Clean Sans-Serif Fonts (with local system fallbacks) -->
@@ -70,12 +70,7 @@
           </div>
         </div>
         <div class="nav-item">
-          <a href="#candles" class="nav-link">Prayer &amp; Candles</a>
-          <div class="nav-dropdown">
-            <a href="#candles">Light a Prayer Candle</a>
-            <a href="#mass-times">Daily Scripture Readings</a>
-            <a href="#mass-times">Eucharistic Adoration</a>
-          </div>
+          <a href="#sacraments" class="nav-link">Sacraments</a>
         </div>
         <div class="nav-item">
           <a href="#music" class="nav-link">Music &amp; Arts</a>
@@ -99,7 +94,7 @@
       </nav>
 
       <div class="header__actions">
-        <a href="#candles" class="btn btn--outline-gold btn--sm">Light a Candle</a>
+        <a href="#visit" class="btn btn--outline-gold btn--sm">Plan Your Visit</a>
         <a href="#give" class="btn btn--gold btn--sm">Donate</a>
         <button
           type="button"
@@ -121,7 +116,6 @@
     <!-- Mobile Navigation Drawer -->
     <div class="mobile-drawer" id="mobile-drawer">
       <a href="#mass-times">Mass &amp; Confession Times</a>
-      <a href="#candles">Light a Prayer Candle</a>
       <a href="#sacraments">Sacraments &amp; Parish Life</a>
       <a href="#music">Music &amp; Concert Series</a>
       <a href="#events">Upcoming Events</a>
@@ -155,7 +149,6 @@
 
         <div class="hero__cta-row">
           <a href="#mass-times" class="btn btn--gold">Mass &amp; Confession Times</a>
-          <a href="#candles" class="btn btn--outline-light">Light a Prayer Candle</a>
           <a href="#visit" class="btn btn--outline-light">Plan Your Visit</a>
         </div>
       </div>
@@ -215,76 +208,6 @@
           </div>
 
           <aside class="readings-card" id="daily-readings-card" aria-label="Today's Scripture Readings"></aside>
-        </div>
-      </div>
-    </section>
-
-    <!-- Light a Prayer Candle (Signature Interactive Section) -->
-    <section class="section section--navy candle-section" id="candles">
-      <div class="container">
-        <div class="candle-grid">
-          <div class="candle-visual">
-            <div id="candles-three-container" class="candles__three">
-              <img
-                src="assets/images/prayer-candles.jpg"
-                alt="Glowing beeswax votive candles in wrought iron stands inside the cathedral chapel"
-                class="candle-fallback-img"
-              />
-              <span class="candle-3d-hint">Drag to orbit · Click any candle</span>
-              <div id="candle-3d-tooltip" class="candle-3d-tooltip" role="status"></div>
-            </div>
-            <div class="candle-counter-overlay">
-              <div style="display:flex; align-items:center; gap:14px;">
-                <svg class="candle-flame-icon" viewBox="0 0 24 36" fill="none" aria-hidden="true">
-                  <path d="M12 2C12 2 18 9 18 14C18 17.3 15.3 20 12 20C8.7 20 6 17.3 6 14C6 9 12 2 12 2Z" fill="#DFBE78"/>
-                  <path d="M12 7C12 7 15 11.2 15 14C15 15.7 13.7 17 12 17C10.3 17 9 15.7 9 14C9 11.2 12 7 12 7Z" fill="#FFF7DC"/>
-                  <rect x="8" y="21" width="8" height="13" rx="1.5" fill="#F7F4ED"/>
-                </svg>
-                <div>
-                  <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold-light);">
-                    Candles Burning This Week
-                  </div>
-                  <div style="font-family:var(--font-serif); font-size:1.7rem; font-weight:600; line-height:1.1;" id="candle-count">
-                    1,428
-                  </div>
-                </div>
-              </div>
-              <span style="font-size:0.8rem; color:rgba(255,255,255,0.75);">Remembered at Daily Mass</span>
-            </div>
-          </div>
-
-          <div>
-            <span class="eyebrow eyebrow--light">Virtual Votive Chapel</span>
-            <h2 class="section-heading section-heading--light">Light a Prayer Candle</h2>
-            <p class="section-lead section-lead--light">
-              Whether praying from across the street or across the globe, light a candle for a loved one,
-              thanksgiving, or healing. All intentions are placed before the altar each morning.
-            </p>
-
-            <form class="candle-form-box" id="candle-form">
-              <div class="form-row">
-                <label for="candle-name" class="sr-only">Your Name</label>
-                <input
-                  type="text"
-                  id="candle-name"
-                  class="input-dark"
-                  placeholder="Your Name (or leave blank for Anonymous)"
-                  maxlength="60"
-                />
-                <label for="candle-intention" class="sr-only">Prayer Intention</label>
-                <textarea
-                  id="candle-intention"
-                  class="textarea-dark"
-                  rows="2"
-                  placeholder="Write your prayer intention..."
-                  maxlength="240"
-                ></textarea>
-              </div>
-              <button type="submit" class="btn btn--gold">Light a Prayer Candle</button>
-            </form>
-
-            <div class="intentions-feed" id="intentions-feed" aria-live="polite"></div>
-          </div>
         </div>
       </div>
     </section>
@@ -575,7 +498,6 @@
           <ul class="footer-links">
             <li><a href="#mass-times">Sunday &amp; Daily Mass Times</a></li>
             <li><a href="#mass-times">Confession &amp; Adoration</a></li>
-            <li><a href="#candles">Light a Prayer Candle</a></li>
             <li><a href="#mass-times">Daily Scripture Readings</a></li>
           </ul>
         </div>
