@@ -542,6 +542,56 @@
   }
 
   /* --------------------------------------------------------------------------
+     Live Parish Notices from Netlify Blobs (/api/entries)
+  -------------------------------------------------------------------------- */
+  async function initEntries() {
+    const list = document.getElementById("entries-list");
+    if (!list) return;
+
+    try {
+      const res = await fetch("/api/entries");
+      if (!res.ok) throw new Error("Failed to fetch entries");
+      const items = await res.json();
+      list.textContent = "";
+
+      if (!Array.isArray(items) || !items.length) {
+        const empty = document.createElement("p");
+        empty.style.color = "var(--ink-muted)";
+        empty.textContent = "No special parish notices posted at this time.";
+        list.appendChild(empty);
+        return;
+      }
+
+      for (const item of items) {
+        const card = document.createElement("article");
+        card.className = "card";
+
+        const wrap = document.createElement("div");
+        const eyebrow = document.createElement("span");
+        eyebrow.className = "eyebrow";
+        eyebrow.textContent = item.createdAt
+          ? new Date(item.createdAt).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })
+          : "Parish Notice";
+
+        const heading = document.createElement("h4");
+        heading.className = "card__title";
+        heading.textContent = item.title || "";
+
+        const body = document.createElement("p");
+        body.className = "card__body";
+        body.style.marginBottom = "0";
+        body.textContent = item.details || "";
+
+        wrap.append(eyebrow, heading, body);
+        card.appendChild(wrap);
+        list.appendChild(card);
+      }
+    } catch {
+      list.textContent = "Parish notices load automatically when hosted on Netlify or running `netlify dev`.";
+    }
+  }
+
+  /* --------------------------------------------------------------------------
      Initialize Application
   -------------------------------------------------------------------------- */
   document.addEventListener("DOMContentLoaded", () => {
@@ -551,6 +601,7 @@
     initSacraments();
     initConcerts();
     initEvents();
+    initEntries();
     initGiving();
     initFaqs();
     initNewsletter();

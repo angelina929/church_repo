@@ -1,0 +1,9 @@
+{
+  "name": "st-bobbys-cathedral",
+  "version": "1.0.0",
+  "private": true,
+  "description": "St. Bobby's Cathedral website with editable notices via Netlify Functions and Netlify Blobs",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}
