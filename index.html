@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>St. Bobby's Cathedral — America's Parish Church</title>
+  <meta
+    name="description"
+    content="Welcome to St. Bobby's Cathedral — daily Mass schedules, sacraments, sacred music, prayer candles, and visitor information."
+  />
+
+  <!-- Editorial Serif & Clean Sans-Serif Fonts (with local system fallbacks) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- Top Utility Bar -->
+  <div class="utility-bar">
+    <div class="container utility-bar__inner">
+      <div class="utility-bar__status">
+        <span id="next-mass-status">Next Mass Today: 10:15 AM Solemn Mass</span>
+        <span aria-hidden="true">·</span>
+        <span>Open Daily 6:30 AM – 8:45 PM</span>
+      </div>
+      <div class="utility-bar__links">
+        <a href="#mass-times" class="utility-bar__link">Mass Schedule</a>
+        <a href="#visit" class="utility-bar__link">Plan Your Visit</a>
+        <button type="button" class="utility-bar__link" data-open-modal="search-modal" aria-label="Search site">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Sticky Navigation Header -->
+  <header class="site-header" id="site-header">
+    <div class="container header__inner">
+      <a href="#top" class="brand" aria-label="St. Bobby's Cathedral Home">
+        <svg class="brand__crest" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M24 3L39 16V43H9V16L24 3Z" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M24 9V37M16 21H32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="24" cy="21" r="4.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M15 43V31C15 26 24 23 24 23C24 23 33 26 33 31V43" stroke="currentColor" stroke-width="1.4"/>
+        </svg>
+        <span class="brand__text">
+          <span class="brand__name">St. Bobby's Cathedral</span>
+          <span class="brand__sub">America's Parish Church</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <div class="nav-item">
+          <a href="#mass-times" class="nav-link">Mass &amp; Sacraments</a>
+          <div class="nav-dropdown">
+            <a href="#mass-times">Mass &amp; Confession Times</a>
+            <a href="#mass-times">Today's Scripture Readings</a>
+            <a href="#sacraments">Baptism &amp; Confirmation</a>
+            <a href="#sacraments">Weddings &amp; Holy Matrimony</a>
+            <a href="#sacraments">Sacramental Records &amp; Mass Cards</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#candles" class="nav-link">Prayer &amp; Candles</a>
+          <div class="nav-dropdown">
+            <a href="#candles">Light a Prayer Candle</a>
+            <a href="#mass-times">Daily Scripture Readings</a>
+            <a href="#mass-times">Eucharistic Adoration</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#music" class="nav-link">Music &amp; Arts</a>
+          <div class="nav-dropdown">
+            <a href="#music">Cathedral Concert Series</a>
+            <a href="#music">Kilgen Grand Organ Recitals</a>
+            <a href="#music">Cathedral Choir &amp; Schola</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <a href="#events" class="nav-link">Events</a>
+        </div>
+        <div class="nav-item">
+          <a href="#visit" class="nav-link">Visit &amp; Tours</a>
+          <div class="nav-dropdown">
+            <a href="#about">Architecture &amp; Heritage</a>
+            <a href="#visit">Hours, Location &amp; Accessibility</a>
+            <a href="#visit">Visitor FAQs &amp; Guidelines</a>
+          </div>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a href="#candles" class="btn btn--outline-gold btn--sm">Light a Candle</a>
+        <a href="#give" class="btn btn--gold btn--sm">Donate</a>
+        <button
+          type="button"
+          class="mobile-toggle"
+          id="mobile-menu-btn"
+          aria-expanded="false"
+          aria-controls="mobile-drawer"
+          aria-label="Toggle Menu"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+      <a href="#mass-times">Mass &amp; Confession Times</a>
+      <a href="#candles">Light a Prayer Candle</a>
+      <a href="#sacraments">Sacraments &amp; Parish Life</a>
+      <a href="#music">Music &amp; Concert Series</a>
+      <a href="#events">Upcoming Events</a>
+      <a href="#visit">Plan Your Visit &amp; FAQs</a>
+      <a href="#give">Support &amp; Donate</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero__media">
+        <img
+          src="assets/images/hero-cathedral.jpg"
+          alt="Sunlit interior nave of the Neo-Gothic cathedral looking toward the high altar"
+          class="hero__img"
+        />
+        <div id="hero-three-container" class="hero__three" aria-hidden="true"></div>
+        <div class="hero__scrim"></div>
+      </div>
+
+      <button type="button" class="hero__3d-badge" id="hero-3d-toggle">3D Sanctuary: Live</button>
+
+      <div class="container hero__content">
+        <span class="eyebrow eyebrow--light" style="margin-bottom: 14px;">America's Parish Church · Open Daily</span>
+        <h1 class="hero__title">A Sanctuary of Faith in the Heart of the City</h1>
+        <p class="hero__subtitle">
+          Open every day to parishioners, neighbors, and pilgrims from around the world for Holy Mass,
+          sacred music, silent prayer, and architectural wonder.
+        </p>
+
+        <div class="hero__cta-row">
+          <a href="#mass-times" class="btn btn--gold">Mass &amp; Confession Times</a>
+          <a href="#candles" class="btn btn--outline-light">Light a Prayer Candle</a>
+          <a href="#visit" class="btn btn--outline-light">Plan Your Visit</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overlapping Quick Worship & Visitor Strip -->
+    <section class="quick-strip" aria-label="Quick Schedule Overview">
+      <div class="container">
+        <div class="quick-strip__grid">
+          <div class="quick-card">
+            <span class="quick-card__label">Sunday Liturgy</span>
+            <h2 class="quick-card__title">Sunday Masses</h2>
+            <p class="quick-card__detail">7:00, 8:00, 9:00, 10:15 AM (Solemn), 12:00, 1:00, 4:00 (Esp) &amp; 5:30 PM</p>
+          </div>
+          <div class="quick-card">
+            <span class="quick-card__label">Daily Eucharist</span>
+            <h2 class="quick-card__title">Weekday Masses</h2>
+            <p class="quick-card__detail">Mon–Fri: 7:00, 7:30, 8:00 AM, 12:00 Noon, 1:00 PM &amp; 5:30 PM</p>
+          </div>
+          <div class="quick-card">
+            <span class="quick-card__label">Mercy &amp; Peace</span>
+            <h2 class="quick-card__title">Confessions</h2>
+            <p class="quick-card__detail">Mon–Fri following 8:00 AM Mass &amp; 12:30 PM · Sat 3:30–5:15 PM</p>
+          </div>
+          <div class="quick-card">
+            <span class="quick-card__label">Fifth Avenue &amp; 50th</span>
+            <h2 class="quick-card__title">Visiting Hours</h2>
+            <p class="quick-card__detail">Cathedral open 6:30 AM – 8:45 PM daily · Free Admission</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mass Times & Daily Readings Section -->
+    <section class="section" id="mass-times">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="eyebrow">Sacred Liturgy</span>
+            <h2 class="section-heading">Mass, Confession &amp; Daily Readings</h2>
+            <p class="section-lead">
+              Join us in person beneath the vaulted stone arches for daily Eucharist, Reconciliation, and Scripture reflection.
+            </p>
+          </div>
+          <a href="#visit" class="btn btn--navy">Visitor Hours &amp; Directions</a>
+        </div>
+
+        <div class="schedule-layout">
+          <div>
+            <div class="tabs" id="schedule-tabs" role="tablist" aria-label="Liturgical Schedule Categories">
+              <button type="button" class="tab-btn is-active" data-schedule="sunday">Sunday &amp; Vigil</button>
+              <button type="button" class="tab-btn" data-schedule="weekday">Weekday Masses</button>
+              <button type="button" class="tab-btn" data-schedule="confession">Confessions &amp; Adoration</button>
+              <button type="button" class="tab-btn" data-schedule="holydays">Holy Days &amp; Vespers</button>
+            </div>
+            <div class="schedule-panel" id="schedule-panel"></div>
+          </div>
+
+          <aside class="readings-card" id="daily-readings-card" aria-label="Today's Scripture Readings"></aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Light a Prayer Candle (Signature Interactive Section) -->
+    <section class="section section--navy candle-section" id="candles">
+      <div class="container">
+        <div class="candle-grid">
+          <div class="candle-visual">
+            <div id="candles-three-container" class="candles__three">
+              <img
+                src="assets/images/prayer-candles.jpg"
+                alt="Glowing beeswax votive candles in wrought iron stands inside the cathedral chapel"
+                class="candle-fallback-img"
+              />
+              <span class="candle-3d-hint">Drag to orbit · Click any candle</span>
+              <div id="candle-3d-tooltip" class="candle-3d-tooltip" role="status"></div>
+            </div>
+            <div class="candle-counter-overlay">
+              <div style="display:flex; align-items:center; gap:14px;">
+                <svg class="candle-flame-icon" viewBox="0 0 24 36" fill="none" aria-hidden="true">
+                  <path d="M12 2C12 2 18 9 18 14C18 17.3 15.3 20 12 20C8.7 20 6 17.3 6 14C6 9 12 2 12 2Z" fill="#DFBE78"/>
+                  <path d="M12 7C12 7 15 11.2 15 14C15 15.7 13.7 17 12 17C10.3 17 9 15.7 9 14C9 11.2 12 7 12 7Z" fill="#FFF7DC"/>
+                  <rect x="8" y="21" width="8" height="13" rx="1.5" fill="#F7F4ED"/>
+                </svg>
+                <div>
+                  <div style="font-size:0.72rem; text-transform:uppercase; letter-spacing:0.14em; color:var(--gold-light);">
+                    Candles Burning This Week
+                  </div>
+                  <div style="font-family:var(--font-serif); font-size:1.7rem; font-weight:600; line-height:1.1;" id="candle-count">
+                    1,428
+                  </div>
+                </div>
+              </div>
+              <span style="font-size:0.8rem; color:rgba(255,255,255,0.75);">Remembered at Daily Mass</span>
+            </div>
+          </div>
+
+          <div>
+            <span class="eyebrow eyebrow--light">Virtual Votive Chapel</span>
+            <h2 class="section-heading section-heading--light">Light a Prayer Candle</h2>
+            <p class="section-lead section-lead--light">
+              Whether praying from across the street or across the globe, light a candle for a loved one,
+              thanksgiving, or healing. All intentions are placed before the altar each morning.
+            </p>
+
+            <form class="candle-form-box" id="candle-form">
+              <div class="form-row">
+                <label for="candle-name" class="sr-only">Your Name</label>
+                <input
+                  type="text"
+                  id="candle-name"
+                  class="input-dark"
+                  placeholder="Your Name (or leave blank for Anonymous)"
+                  maxlength="60"
+                />
+                <label for="candle-intention" class="sr-only">Prayer Intention</label>
+                <textarea
+                  id="candle-intention"
+                  class="textarea-dark"
+                  rows="2"
+                  placeholder="Write your prayer intention..."
+                  maxlength="240"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn--gold">Light a Prayer Candle</button>
+            </form>
+
+            <div class="intentions-feed" id="intentions-feed" aria-live="polite"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Welcome & Historic Legacy Section -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-media">
+            <div class="about-media__frame">
+              <img
+                src="assets/images/cathedral-exterior.jpg"
+                alt="Exterior facade and twin spires of the Neo-Gothic limestone cathedral at dusk"
+              />
+            </div>
+            <div class="about-media__badge">
+              <span class="eyebrow">Historic Landmark</span>
+              <div style="font-family:var(--font-serif); font-size:1.25rem; font-weight:600; color:var(--navy-deep);">
+                Cornerstone Laid 1858 · Dedicated 1879
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span class="eyebrow">Welcome to America's Parish Church</span>
+            <h2 class="section-heading">Where Stone, Light, and Living Faith Meet</h2>
+            <div class="gold-rule"></div>
+            <p style="color:var(--ink-muted); margin-bottom:16px;">
+              Designed by renowned architect James Renwick Jr. in the soaring Neo-Gothic tradition, St. Bobby's
+              Cathedral has stood on Fifth Avenue for nearly a century and a half as a house of prayer for all peoples.
+            </p>
+            <p style="color:var(--ink-muted);">
+              Beyond its marble altars, bronze doors, and glowing rose window, this is an active, welcoming Catholic
+              parish serving city residents, commuters, families, and five million annual visitors.
+            </p>
+
+            <div class="about-stats">
+              <div>
+                <div class="stat__num">330 ft</div>
+                <div class="stat__label">Twin Neo-Gothic Spires</div>
+              </div>
+              <div>
+                <div class="stat__num">2,400</div>
+                <div class="stat__label">Sanctuary Seating</div>
+              </div>
+              <div>
+                <div class="stat__num">365</div>
+                <div class="stat__label">Days Open Each Year</div>
+              </div>
+            </div>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a href="#visit" class="btn btn--navy">Visitor Guide &amp; Tours</a>
+              <a href="#sacraments" class="btn btn--outline-dark">Explore Parish Ministries</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sacraments & Parish Services Grid -->
+    <section class="section section--alt" id="sacraments">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="eyebrow">Grace &amp; Community</span>
+            <h2 class="section-heading">Sacraments &amp; Parish Life</h2>
+            <p class="section-lead">
+              From welcoming new life in Baptism to celebrating Holy Matrimony and requesting archival records,
+              our pastoral team walks with you in every season.
+            </p>
+          </div>
+        </div>
+
+        <div class="cards-grid-3" id="sacraments-grid"></div>
+      </div>
+    </section>
+
+    <!-- Music & Grand Organ Series -->
+    <section class="section" id="music">
+      <div class="container">
+        <div class="music-layout">
+          <div class="music-image">
+            <img
+              src="assets/images/cathedral-organ.jpg"
+              alt="Historic gilded pipe organ and carved oak gallery inside the cathedral"
+            />
+          </div>
+
+          <div>
+            <span class="eyebrow">Sacred Sound</span>
+            <h2 class="section-heading">Cathedral Choir &amp; Concert Series</h2>
+            <p class="section-lead">
+              Home to the renowned 9,800-pipe Kilgen Organs and the Cathedral Choir, offering free afternoon
+              recitals, guest choir showcases, and solemn liturgical music year-round.
+            </p>
+
+            <div class="concert-list" id="concert-list"></div>
+
+            <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+              <a href="#give" class="btn btn--navy">Support Friends of Music</a>
+              <a href="#events" class="btn btn--outline-dark">Full Music Calendar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upcoming Events & Liturgical Calendar -->
+    <section class="section section--alt" id="events">
+      <div class="container">
+        <div class="section__header">
+          <div>
+            <span class="eyebrow">Cathedral Calendar</span>
+            <h2 class="section-heading">Upcoming Liturgies, Tours &amp; Gatherings</h2>
+          </div>
+
+          <div class="tabs" id="event-filters" role="tablist" aria-label="Filter Events">
+            <button type="button" class="tab-btn is-active" data-filter="all">All Events</button>
+            <button type="button" class="tab-btn" data-filter="liturgy">Liturgy</button>
+            <button type="button" class="tab-btn" data-filter="music">Music</button>
+            <button type="button" class="tab-btn" data-filter="tours">Tours</button>
+            <button type="button" class="tab-btn" data-filter="community">Community</button>
+          </div>
+        </div>
+
+        <div class="events-list" id="events-list"></div>
+      </div>
+    </section>
+
+    <!-- Support & Stewardship Section -->
+    <section class="section section--navy" id="give">
+      <div class="container">
+        <div class="give-grid">
+          <div>
+            <span class="eyebrow eyebrow--light">Stewardship &amp; Preservation</span>
+            <h2 class="section-heading section-heading--light">Sustain America's Parish Church</h2>
+            <div class="gold-rule"></div>
+            <p class="section-lead section-lead--light" style="margin-bottom:20px;">
+              St. Bobby's Cathedral receives no government funding and relies entirely on the generosity of
+              parishioners, friends, and visitors to keep our doors open daily and preserve this sacred monument.
+            </p>
+            <ul style="list-style:none; padding:0; margin:0; display:grid; gap:10px; color:rgba(255,255,255,0.85); font-size:0.95rem;">
+              <li>✦ Supports daily liturgy, pastoral care, and welcoming all visitors</li>
+              <li>✦ Sustains outreach meals and pastoral assistance for neighbors in need</li>
+              <li>✦ Preserves historic limestone masonry, stained glass, and pipe organs</li>
+            </ul>
+          </div>
+
+          <form class="give-widget" id="give-form">
+            <span class="eyebrow">Online Stewardship</span>
+            <h3 style="font-family:var(--font-serif); font-size:1.8rem; margin:6px 0 14px; color:var(--navy-deep);">
+              Make a Gift
+            </h3>
+
+            <div class="tabs" style="margin-bottom:16px;">
+              <button type="button" class="tab-btn is-active" data-freq="One-Time Gift">One-Time</button>
+              <button type="button" class="tab-btn" data-freq="Monthly Stewardship">Monthly</button>
+            </div>
+
+            <label for="give-fund" style="display:block; font-size:0.82rem; font-weight:600; margin-bottom:6px;">
+              Designation Fund
+            </label>
+            <select id="give-fund" class="select-light"></select>
+            <p id="give-fund-desc" style="font-size:0.82rem; color:var(--ink-muted); margin:8px 0 16px;"></p>
+
+            <label style="display:block; font-size:0.82rem; font-weight:600;">Select Amount</label>
+            <div class="amount-grid">
+              <button type="button" class="amount-btn" data-amount="25">$25</button>
+              <button type="button" class="amount-btn is-active" data-amount="50">$50</button>
+              <button type="button" class="amount-btn" data-amount="100">$100</button>
+              <button type="button" class="amount-btn" data-amount="250">$250</button>
+            </div>
+
+            <label for="give-custom-amount" class="sr-only">Custom Amount</label>
+            <input
+              type="number"
+              id="give-custom-amount"
+              class="input-light"
+              placeholder="Or enter custom amount ($)"
+              min="1"
+            />
+
+            <button type="submit" class="btn btn--navy" style="width:100%; margin-top:18px;">
+              Continue to Stewardship Confirmation
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plan Your Visit & FAQs -->
+    <section class="section" id="visit">
+      <div class="container">
+        <div class="visit-grid">
+          <div>
+            <span class="eyebrow">Visitor Logistics</span>
+            <h2 class="section-heading">Plan Your Visit</h2>
+            <p class="section-lead" style="margin-bottom:24px;">
+              Located on Fifth Avenue directly across from Rockefeller Center, the Cathedral welcomes visitors
+              daily. Admission is free.
+            </p>
+
+            <div class="info-list">
+              <div class="info-item">
+                <h3 class="info-item__title">Location &amp; Parish House</h3>
+                <p class="info-item__text">
+                  Cathedral Entrance: 5th Avenue between 50th &amp; 51st Streets, New York, NY 10022<br />
+                  Parish House Office: 14 East 51st Street · Open 8:30 AM – 5:00 PM Daily
+                </p>
+              </div>
+              <div class="info-item">
+                <h3 class="info-item__title">Cathedral Gift Shop</h3>
+                <p class="info-item__text">
+                  Open 9:00 AM – 6:00 PM Daily · Rosaries, sacred art, books, and commemorative keepsakes.
+                </p>
+              </div>
+              <div class="info-item">
+                <h3 class="info-item__title">Accessibility &amp; Security</h3>
+                <p class="info-item__text">
+                  Step-free wheelchair accessibility ramp located on 51st Street. All bags are subject to security
+                  screening upon entry; luggage storage is not available.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <span class="eyebrow">Frequently Asked Questions</span>
+            <h2 class="section-heading" style="font-size:2.1rem;">Helpful Guidance</h2>
+            <div class="faq-list" id="faq-list"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Newsletter Bar -->
+  <section class="newsletter-bar" aria-label="Parish Newsletter">
+    <div class="container newsletter-bar__inner">
+      <div>
+        <span class="eyebrow eyebrow--light">Stay Connected</span>
+        <h2 style="font-family:var(--font-serif); font-size:1.85rem; margin:4px 0;">
+          Weekly Parish Notes &amp; Concert Announcements
+        </h2>
+      </div>
+      <form class="newsletter-form" id="newsletter-form">
+        <label for="newsletter-email" class="sr-only">Email Address</label>
+        <input
+          type="email"
+          id="newsletter-email"
+          class="input-dark"
+          placeholder="Enter your email address"
+          required
+        />
+        <button type="submit" class="btn btn--gold">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" style="margin-bottom:14px;">
+            <svg class="brand__crest" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M24 3L39 16V43H9V16L24 3Z" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M24 9V37M16 21H32" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            <span class="brand__text">
+              <span class="brand__name">St. Bobby's Cathedral</span>
+              <span class="brand__sub">Archdiocese of New York</span>
+            </span>
+          </div>
+          <p style="font-size:0.88rem; margin:0 0 12px;">
+            Fifth Avenue at 50th Street<br />
+            Parish House: 14 East 51st Street, New York, NY 10022
+          </p>
+          <p style="font-size:0.88rem; margin:0;">
+            Rectory &amp; Pastoral Desk: (212) 753-2261<br />
+            Parish Office Hours: 8:30 AM – 5:00 PM Daily
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Worship &amp; Prayer</h3>
+          <ul class="footer-links">
+            <li><a href="#mass-times">Sunday &amp; Daily Mass Times</a></li>
+            <li><a href="#mass-times">Confession &amp; Adoration</a></li>
+            <li><a href="#candles">Light a Prayer Candle</a></li>
+            <li><a href="#mass-times">Daily Scripture Readings</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Sacraments &amp; Music</h3>
+          <ul class="footer-links">
+            <li><a href="#sacraments">Baptism &amp; OCIA</a></li>
+            <li><a href="#sacraments">Cathedral Weddings</a></li>
+            <li><a href="#sacraments">Sacramental Records</a></li>
+            <li><a href="#music">Kilgen Grand Organ Series</a></li>
+            <li><a href="#music">Friends of Cathedral Music</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Visit &amp; Stewardship</h3>
+          <ul class="footer-links">
+            <li><a href="#visit">Hours &amp; Accessibility</a></li>
+            <li><a href="#events">Guided Tours &amp; Events</a></li>
+            <li><a href="#give">Annual Cathedral Fund</a></li>
+            <li><a href="#give">Preservation &amp; Outreach</a></li>
+            <li><a href="#visit">Security &amp; Visitor FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 St. Bobby's Cathedral Parish. All Rights Reserved.</span>
+        <span>Privacy Policy · Safe Environment · Parish Directory</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sacrament Detail Modal -->
+  <div class="modal-backdrop" id="sacrament-modal" role="dialog" aria-modal="true" aria-label="Sacrament Information">
+    <div class="modal">
+      <button type="button" class="modal__close" data-close-modal aria-label="Close modal">×</button>
+      <div id="sacrament-modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div class="modal-backdrop" id="search-modal" role="dialog" aria-modal="true" aria-labelledby="search-title">
+    <div class="modal">
+      <button type="button" class="modal__close" data-close-modal aria-label="Close modal">×</button>
+      <span class="eyebrow">Cathedral Directory</span>
+      <h2 id="search-title" class="section-heading" style="font-size:1.9rem;">Search Parish Resources</h2>
+      <label for="site-search-input" class="sr-only">Search</label>
+      <input
+        type="search"
+        id="site-search-input"
+        class="input-light"
+        placeholder="Search Mass times, weddings, organ recitals, tours, accessibility..."
+        style="margin-bottom:18px;"
+      />
+      <div id="site-search-results"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/three-scenes.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
