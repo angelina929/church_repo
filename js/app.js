@@ -5,8 +5,6 @@
     MASS_SCHEDULES,
     DAILY_READINGS,
     SACRAMENTS,
-    CONCERTS,
-    EVENTS,
     FAQS,
     FUNDS
   } = window.CathedralData;
@@ -239,113 +237,6 @@
   }
 
   /* --------------------------------------------------------------------------
-     Music & Concerts
-  -------------------------------------------------------------------------- */
-  function initConcerts() {
-    const container = document.getElementById("concert-list");
-    if (!container) return;
-
-    container.innerHTML = CONCERTS.map((c) => {
-      const [month, day] = c.date.split(" ");
-      return `
-        <article class="concert-item">
-          <div class="concert-date">
-            <span class="concert-date__month">${escapeHtml(month)}</span>
-            <span class="concert-date__day">${escapeHtml(day)}</span>
-          </div>
-          <div>
-            <span class="eyebrow">${escapeHtml(c.series)}</span>
-            <h3 class="concert-item__title">${escapeHtml(c.title)}</h3>
-            <div class="concert-item__meta">${escapeHtml(c.dayTime)} · ${escapeHtml(c.performer)}</div>
-            <div class="concert-item__meta" style="margin-top:4px;">${escapeHtml(c.location)}</div>
-          </div>
-        </article>
-      `;
-    }).join("");
-  }
-
-  /* --------------------------------------------------------------------------
-     Upcoming Events + Filter + ICS Download
-  -------------------------------------------------------------------------- */
-  function downloadEventIcs(evt) {
-    const icsContent = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//Cathedral Parish//Website//EN",
-      "BEGIN:VEVENT",
-      `SUMMARY:${evt.title}`,
-      `LOCATION:${evt.location} - 5th Ave & 50th St`,
-      `DESCRIPTION:${evt.description}`,
-      "DTSTART:20261201T151500Z",
-      "DTEND:20261201T163000Z",
-      "END:VEVENT",
-      "END:VCALENDAR"
-    ].join("\r\n");
-
-    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${evt.id}.ics`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    showToast(`Calendar invite downloaded for "${evt.title}".`);
-  }
-
-  function initEvents() {
-    const filterContainer = document.getElementById("event-filters");
-    const listEl = document.getElementById("events-list");
-    if (!listEl) return;
-
-    function renderEvents(category) {
-      const items =
-        category === "all" ? EVENTS : EVENTS.filter((e) => e.category === category);
-
-      listEl.innerHTML = items
-        .map(
-          (evt) => `
-        <article class="event-card">
-          <div class="event-card__date">
-            <span class="event-card__month">${escapeHtml(evt.dateMonth)}</span>
-            <span class="event-card__day">${escapeHtml(evt.dateDay)}</span>
-          </div>
-          <div>
-            <h3 class="event-card__title">${escapeHtml(evt.title)}</h3>
-            <div class="event-card__meta">${escapeHtml(evt.time)} · ${escapeHtml(evt.location)}</div>
-            <p class="event-card__desc">${escapeHtml(evt.description)}</p>
-            <button type="button" class="card__link" data-ics-id="${escapeHtml(evt.id)}">
-              + Add to Calendar (.ics)
-            </button>
-          </div>
-        </article>
-      `
-        )
-        .join("");
-
-      listEl.querySelectorAll("[data-ics-id]").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const evt = EVENTS.find((e) => e.id === btn.getAttribute("data-ics-id"));
-          if (evt) downloadEventIcs(evt);
-        });
-      });
-    }
-
-    if (filterContainer) {
-      filterContainer.querySelectorAll(".tab-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filterContainer.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("is-active"));
-          btn.classList.add("is-active");
-          renderEvents(btn.getAttribute("data-filter"));
-        });
-      });
-    }
-
-    renderEvents("all");
-  }
-
-  /* --------------------------------------------------------------------------
      Stewardship & Giving Widget
   -------------------------------------------------------------------------- */
   function initGiving() {
@@ -500,8 +391,6 @@
     if (searchInput && searchResults) {
       const corpus = [
         ...SACRAMENTS.map((s) => ({ title: s.title, desc: s.summary, href: "#sacraments" })),
-        ...EVENTS.map((e) => ({ title: e.title, desc: `${e.dateMonth} ${e.dateDay} · ${e.time}`, href: "#events" })),
-        ...CONCERTS.map((c) => ({ title: c.title, desc: `${c.series} · ${c.dayTime}`, href: "#music" })),
         ...FAQS.map((f) => ({ title: f.q, desc: f.a, href: "#visit" }))
       ];
 
@@ -599,8 +488,6 @@
     initHeader();
     initSchedules();
     initSacraments();
-    initConcerts();
-    initEvents();
     initEntries();
     initGiving();
     initFaqs();

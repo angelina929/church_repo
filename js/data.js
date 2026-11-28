@@ -1,71 +1,49 @@
 /**
  * Central Parish & Cathedral Configuration
- * Edit this file to customize the parish name, schedules, events, and directory.
+ * Edit this file to customize the parish name, schedules, and directory.
  */
 
 const SITE_CONFIG = {
-  name: "St. Bobby's Cathedral",
-  tagline: "America's Parish Church • Est. 1879",
-  shortName: "St. Bobby's Cathedral",
-  address: "5th Avenue between 50th & 51st Streets, New York, NY 10022",
-  parishHouseAddress: "14 East 51st Street, New York, NY 10022",
-  phone: "(212) 753-2261",
+  name: "St. Ann Roman Catholic Church",
+  tagline: "Parish Church • Est. 1911",
+  shortName: "St. Ann Roman Catholic Church",
+  address: "291 St Pauls Ave, Jersey City, NJ 07306",
+  parishHouseAddress: "291 St Pauls Ave, Jersey City, NJ 07306",
+  phone: "(201) 656-4018",
   email: "info@cathedralparish.org",
   hours: {
-    cathedral: "6:30 AM – 8:45 PM Daily",
+    church: "6:30 AM – 8:45 PM Daily",
     parishHouse: "8:30 AM – 5:00 PM Daily",
-    giftShop: "9:00 AM – 6:00 PM Daily"
   }
 };
 
 const MASS_SCHEDULES = {
   sunday: {
     title: "Sunday & Vigil Masses",
-    subtitle: "Celebrated in the Main Sanctuary • Solemn Mass at 10:15 AM with Full Choir",
+    subtitle: "Celebrated in the Main Sanctuary",
     items: [
-      { time: "5:30 PM (Sat)", name: "Saturday Anticipated Vigil Mass", note: "Organ & Cantor" },
-      { time: "7:00 AM", name: "Early Morning Mass", note: "Quiet spoken liturgy" },
-      { time: "8:00 AM", name: "Morning Mass", note: "Organ & Cantor" },
-      { time: "9:00 AM", name: "Parish Family Mass", note: "Schola Cantorum" },
-      { time: "10:15 AM", name: "Solemn Cathedral Mass", note: "Full Cathedral Choir & Grand Organ" },
-      { time: "12:00 PM", name: "Midday Mass", note: "Cantor & Organ" },
-      { time: "1:00 PM", name: "Afternoon Mass", note: "Organ & Ensemble" },
-      { time: "4:00 PM", name: "Misa en Español", note: "Coro Hispano de la Catedral" },
-      { time: "5:30 PM", name: "Sunday Evening Mass", note: "Contemporary Sacred Ensemble" }
+      { time: "5:30 PM (Sat)", name: "Saturday Anticipated Vigil Mass" },
+      { time: "10:30 AM", name: "Polish Spoken Mass" },
+      { time: "12:30 PM", name: "English Spoken Mass", },
     ]
   },
   weekday: {
     title: "Monday – Friday Masses",
-    subtitle: "Daily Eucharist offered in the Main Sanctuary and Lady Chapel",
+    subtitle: "Daily Eucharist offered in the Main Sanctuary",
     items: [
-      { time: "7:00 AM", name: "Daily Morning Mass", note: "Main Altar" },
-      { time: "7:30 AM", name: "Morning Mass", note: "Lady Chapel", live: false },
-      { time: "8:00 AM", name: "Morning Mass", note: "Main Altar • Confessions follow", live: false },
-      { time: "12:00 PM", name: "Midday Mass", note: "Main Altar • Organ & Cantor", live: false },
-      { time: "1:00 PM", name: "Afternoon Mass", note: "Main Altar", live: false },
-      { time: "5:30 PM", name: "Evening Mass", note: "Main Altar • Sung Vespers on Fridays", live: false }
+      { time: "7:00 AM", name: "Daily Morning Mass" },
     ]
   },
   confession: {
-    title: "Reconciliation & Adoration",
-    subtitle: "Encounter mercy in the quiet of the Cathedral Baptistry & Lady Chapel",
+    title: "Reconciliation & Confession",
+    subtitle: "Encounter mercy in the quiet of the Church Confessional",
     items: [
-      { time: "Mon–Fri · 8:30 AM", name: "Morning Confessions", note: "Immediately following the 8:00 AM Mass until 9:30 AM", live: false },
-      { time: "Mon–Fri · 12:30 PM", name: "Midday Confessions", note: "Available in English & Spanish near the South Transept", live: false },
-      { time: "Saturday · 3:30 PM", name: "Saturday Confessions", note: "3:30 PM – 5:15 PM prior to the Vigil Mass", live: false },
-      { time: "First Friday · 1:30 PM", name: "Eucharistic Adoration", note: "Exposition in the Lady Chapel until 5:15 PM Benediction", live: false }
+      { time: "Mon–Fri · 7:30 AM", name: "Morning Confessions", note: "Immediately following the 7:00 AM Mass", live: false },
+      { time: "Saturday · 4:30 PM", name: "Saturday Confessions", note: "Before the 5:00 PM Vigil Mass", live: false },
+      { time: "By Appointment", name: "Private Confession", note: "Contact the Parish House to schedule a time", live: false }
     ]
   },
-  holydays: {
-    title: "Holy Days & Vespers",
-    subtitle: "Solemn liturgies of the Church year and Choral Evening Prayer",
-    items: [
-      { time: "5:30 PM (Eve)", name: "Vigil of the Solemnity", note: "Main Sanctuary • Incense & Choir", live: false },
-      { time: "7:00 AM – 1:00 PM", name: "Hourly Holy Day Masses", note: "7:00, 7:30, 8:00, 12:00 Noon, 1:00 PM", live: false },
-      { time: "5:30 PM", name: "Solemn Pontifical Mass", note: "Cathedral Choir & Brass", live: true },
-      { time: "Sundays · 3:15 PM", name: "Solemn Choral Vespers", note: "Select liturgical seasons in the Chancel", live: false }
-    ]
-  }
+
 };
 
 const DAILY_READINGS = {
@@ -167,84 +145,21 @@ const CONCERTS = [
   }
 ];
 
-const EVENTS = [
-  {
-    id: "evt-1",
-    category: "liturgy",
-    dateMonth: "NOV",
-    dateDay: "24",
-    title: "Solemnity of Our Lord Jesus Christ, King of the Universe",
-    time: "10:15 AM",
-    location: "Main Sanctuary",
-    description: "Solemn Pontifical Mass concluding the liturgical year with full Cathedral Choir, brass, and Eucharistic procession."
-  },
-  {
-    id: "evt-2",
-    category: "music",
-    dateMonth: "NOV",
-    dateDay: "24",
-    title: "Kilgen Grand Organ Afternoon Recital",
-    time: "3:15 PM – 4:15 PM",
-    location: "Main Sanctuary",
-    description: "An hour of sacred organ music performed live on the historic cathedral pipe organs. No tickets required."
-  },
-  {
-    id: "evt-3",
-    category: "community",
-    dateMonth: "NOV",
-    dateDay: "28",
-    title: "Thanksgiving Day Mass of Gratitude",
-    time: "10:15 AM",
-    location: "Main Sanctuary",
-    description: "Join neighbors, families, and visitors for a morning liturgy of thanksgiving. Non-perishable food donations welcome for parish outreach."
-  },
-  {
-    id: "evt-4",
-    category: "tours",
-    dateMonth: "NOV",
-    dateDay: "30",
-    title: "Architectural & Stained Glass Guided Tour",
-    time: "1:30 PM – 2:45 PM",
-    location: "Meets at the Bronze Doors (5th Ave)",
-    description: "Docent-led exploration of the Neo-Gothic vaulting, Lady Chapel, 70+ stained glass windows, and bronze sanctuary doors."
-  },
-  {
-    id: "evt-5",
-    category: "liturgy",
-    dateMonth: "DEC",
-    dateDay: "01",
-    title: "First Sunday of Advent & Vespers by Candlelight",
-    time: "10:15 AM Mass · 3:15 PM Vespers",
-    location: "Main Sanctuary",
-    description: "Blessing of the Cathedral Advent Wreath and evening Choral Vespers ushering in the season of joyful expectation."
-  },
-  {
-    id: "evt-6",
-    category: "community",
-    dateMonth: "DEC",
-    dateDay: "07",
-    title: "Young Adult Faith & Fellowship Evening",
-    time: "6:30 PM – 8:30 PM",
-    location: "Parish House Library",
-    description: "Candlelit prayer reflection followed by warm supper and conversation for young adults in their 20s and 30s."
-  }
-];
-
 const FAQS = [
   {
     q: "Do I need tickets or reservations to visit or attend Mass?",
     a: "No tickets are needed for daily visits or regular Sunday and weekday Masses. Admission is always free. Special ticketed seating only applies to select evening concerts and Christmas Midnight Mass."
   },
   {
-    q: "Is the Cathedral wheelchair accessible?",
-    a: "Yes. A step-free wheelchair accessibility ramp is located at the 51st Street entrance near the Parish House. Accessible restrooms and reserved pew seating are available throughout the nave."
+    q: "Is the Church wheelchair accessible?",
+    a: "Yes. Step-free wheelchair accessibility is available at the main entrance at 291 St Pauls Ave. Accessible restrooms and reserved seating are available throughout the nave."
   },
   {
     q: "What are the security and bag guidelines for visitors?",
     a: "For the safety of all worshippers and guests, all bags and packages are subject to a brief visual security check upon entry. Luggage storage is not available, and large suitcases cannot be brought inside."
   },
   {
-    q: "May I take photographs inside the Cathedral?",
+    q: "May I take photographs inside the Church?",
     a: "Non-flash photography for personal use is welcome during sightseeing hours. Out of reverence for worshippers, photography and video recording are paused while Mass or Confession is in progress."
   },
   {
@@ -266,7 +181,6 @@ window.CathedralData = {
   DAILY_READINGS,
   SACRAMENTS,
   CONCERTS,
-  EVENTS,
   FAQS,
   FUNDS
 };
